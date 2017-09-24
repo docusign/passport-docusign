@@ -1,0 +1,9 @@
+Makefile
+docs/
+examples/
+reports/
+test/
+.idea/
+
+.jshintrc
+.travis.yml
