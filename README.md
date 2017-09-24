@@ -13,6 +13,10 @@ unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
 
+## Requirements
+
+Node 0.8 or later.
+
 ## Install
 
     $ npm install passport-docusign
