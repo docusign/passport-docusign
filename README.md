@@ -75,7 +75,7 @@ app.get('/auth/docusign/callback',
 
 ## Examples
 
-Coming soon.
+See https://github.com/docusign/docusign-code-examples/blob/master/node/NodeSDKSamples.js#L32.
 
 ## FAQ
 
