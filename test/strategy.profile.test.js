@@ -14,10 +14,10 @@ describe('Strategy#userProfile', function () {
     });
 
     strategy._oauth2.get = function (url, accessToken, callback) {
-      if (url != 'https://account-d.docusign.com/oauth/userinfo') {
+      if (url !== 'https://account-d.docusign.com/oauth/userinfo') {
         return callback(new Error('incorrect url argument'));
       }
-      if (accessToken != 'token') {
+      if (accessToken !== 'token') {
         return callback(new Error('incorrect token argument'));
       }
 
@@ -131,7 +131,7 @@ describe('Strategy#userProfile', function () {
 
     strategy._oauth2.get = function (url, accessToken, callback) {
       return callback(new Error('something went wrong'));
-    }
+    };
 
 
     var err, profile;

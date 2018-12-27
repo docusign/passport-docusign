@@ -29,7 +29,7 @@ describe('Strategy', function () {
     });
   });
 
-  describe('authorization request with display parameter', function () {
+  describe('authorization request with scope parameter', function () {
     var strategy = new DocusignStrategy({
       clientID: 'ABC123',
       clientSecret: 'secret'
@@ -47,11 +47,11 @@ describe('Strategy', function () {
         })
         .req(function (req) {
         })
-        .authenticate({display: 'mobile'});
+        .authenticate({scope: 'signature'});
     });
 
     it('should be redirected', function () {
-      expect(url).to.equal('https://account-d.docusign.com/oauth/auth?display=mobile&response_type=code&client_id=ABC123');
+      expect(url).to.equal('https://account-d.docusign.com/oauth/auth?response_type=code&scope=signature&client_id=ABC123');
     });
   });
 
@@ -214,9 +214,10 @@ describe('Strategy', function () {
     });
 
     it('should error', function () {
-      expect(err.constructor.name).to.equal('TokenError');
+      expect(err.constructor.name).to.equal('DocusignTokenError');
       expect(err.message).to.equal('The provided value for the input parameter \'code\' is not valid.');
       expect(err.code).to.equal('invalid_grant');
+      expect(err.status).to.equal(400);
     });
   }); // error caused by invalid code sent to token endpoint
 });

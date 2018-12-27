@@ -1,1 +1,25 @@
-{"sub": "50d89ab1-dad5-4a0a-b410-92ee3110b970","accounts":[{"account_id": "fe0b61a3-3b9b-46d4-b7be-4592af32aa9b","is_default": true,"account_name": "World Wide Co", "base_uri": "https:\/\/demo.docusign.net"}],"name": "Susan Smart","given_name": "Susan","family_name": "Smart","email": "susan.smart@example.com"}
+{
+  "sub": "4799e5e9-1559-4915-9862-cf4713bbcacc",
+  "name": "Susan Smart",
+  "given_name": "Susan",
+  "family_name": "Smart",
+  "created": "2015-08-13T22:03:03.45",
+  "email": "susan.smart@example.com",
+  "accounts": [
+    {
+      "account_id": "a4ec37d6-04aa-4f37-86c2-143885c220e1",
+      "is_default": true,
+      "account_name": "Susan Smart",
+      "base_uri": "https://domain.example.com",
+      "organization": {
+        "organization_id": "9c5fb8e1-b0bf-4970-8e0e-054ff8a249bf",
+        "links": [
+          {
+            "rel": "self",
+            "href": "https://account.domain.example.com/organizations/9c5fb8e1-b0bf-4970-8e0e-054ff8a249bf"
+          }
+        ]
+      }
+    }
+  ]
+}

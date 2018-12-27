@@ -7,7 +7,7 @@ var Profile = require('../lib/profile')
 
 describe('Profile.parse', function () {
 
-  describe('profile with picture attribute in orginal format', function () {
+  describe('profile with an Organization Account', function () {
     var profile;
 
     before(function (done) {
