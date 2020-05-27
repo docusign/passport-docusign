@@ -110,6 +110,36 @@ $ make test-cov
 $ make view-cov
 ```
 
+#### Example
+
+```bash
+$ lsof -n -i4TCP:8675
+COMMAND  PID           USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    2457 jeffrey.tanner   23u  IPv6 0x418cd058d982c389      0t0  TCP *:8675 (LISTEN)
+$ kill -9 2457
+```
+
+### Configure: Client Credentials
+
+```bash
+$ cd ./examples/login/config
+$ cp local.template.js local.js
+$ vim local.js
+```
+
+#### Provide Client Credentials:
+```bash
+  clientID: '[** CLIENT_ID **]',
+  clientSecret: '[** CLIENT_SECRET **]',
+```
+
+```bash
+$ cd ./examples/login
+$ npm install
+$ npm run dev
+$ open http://localhost:8675
+```
+
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
