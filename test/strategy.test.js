@@ -29,7 +29,7 @@ describe('Strategy', function () {
     });
   });
 
-  describe('authorization request with scope parameter', function () {
+  describe('authorization request with scope parameter: \'signature\'', function () {
     var strategy = new DocusignStrategy({
       clientID: 'ABC123',
       clientSecret: 'secret'
@@ -50,8 +50,87 @@ describe('Strategy', function () {
         .authenticate({scope: 'signature'});
     });
 
-    it('should be redirected', function () {
+    it('should be redirected with \'&scope=signature\'', function () {
       expect(url).to.equal('https://account-d.docusign.com/oauth/auth?response_type=code&scope=signature&client_id=ABC123');
+    });
+  });
+
+  describe('authorization production request with scope parameter: \'signature\'', function () {
+    var strategy = new DocusignStrategy({
+      clientID: 'ABC123',
+      clientSecret: 'secret',
+      production: true
+    }, function () {
+    });
+
+
+    var url;
+
+    before(function (done) {
+      chai.passport.use(strategy)
+          .redirect(function (u) {
+            url = u;
+            done();
+          })
+          .req(function (req) {
+          })
+          .authenticate({scope: 'signature'});
+    });
+
+    it('should be redirected with \'&scope=signature\'', function () {
+      expect(url).to.equal('https://account.docusign.com/oauth/auth?response_type=code&scope=signature&client_id=ABC123');
+    });
+  });
+
+  describe('authorization request with scope parameter: [\'signature\']', function () {
+    var strategy = new DocusignStrategy({
+      clientID: 'ABC123',
+      clientSecret: 'secret'
+    }, function () {
+    });
+
+
+    var url;
+
+    before(function (done) {
+      chai.passport.use(strategy)
+          .redirect(function (u) {
+            url = u;
+            done();
+          })
+          .req(function (req) {
+          })
+          .authenticate({scope: ['signature']});
+    });
+
+    it('should be redirected with \'&scope=signature\'', function () {
+      expect(url).to.equal('https://account-d.docusign.com/oauth/auth?response_type=code&scope=signature&client_id=ABC123');
+    });
+  });
+
+  describe('authorization request with scope parameter: [\'spring_read\', \'spring_write\']', function () {
+    var strategy = new DocusignStrategy({
+      clientID: 'ABC123',
+      clientSecret: 'secret'
+    }, function () {
+    });
+
+
+    var url;
+
+    before(function (done) {
+      chai.passport.use(strategy)
+          .redirect(function (u) {
+            url = u;
+            done();
+          })
+          .req(function (req) {
+          })
+          .authenticate({scope: ['spring_read', 'spring_write']});
+    });
+
+    it('should be redirected with \'&scope=spring_read%20spring_write\'', function () {
+      expect(url).to.equal('https://account-d.docusign.com/oauth/auth?response_type=code&scope=spring_read%20spring_write&client_id=ABC123');
     });
   });
 
