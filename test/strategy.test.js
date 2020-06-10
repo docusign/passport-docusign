@@ -232,7 +232,7 @@ describe('Strategy', function () {
     strategy._oauth2.getOAuthAccessToken = function (code, options, callback) {
       return callback({
         statusCode: 400,
-        data: '{"error":{"errorCode":"PARTNER_AUTHENTICATION_FAILED","message":"The specified Integrator Key was not found or is disabled. An Integrator key was not specified."}}'
+        data: '{"error":{"errorCode":"PARTNER_AUTHENTICATION_FAILED","message":"The specified Integration Key was not found or is disabled. An Integration key was not specified."}}'
       });
     };
 
@@ -255,7 +255,7 @@ describe('Strategy', function () {
     it('should error', function () {
       expect(err).to.be.an.instanceOf(Error);
       expect(err.constructor.name).to.equal('DocusignTokenError');
-      expect(err.message).to.equal('The specified Integrator Key was not found or is disabled. An Integrator key was not specified.');
+      expect(err.message).to.equal('The specified Integration Key was not found or is disabled. An Integration key was not specified.');
       expect(err.errorCode).to.equal('PARTNER_AUTHENTICATION_FAILED');
       expect(err.subcode).to.be.undefined;
     });

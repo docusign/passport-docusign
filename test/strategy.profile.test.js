@@ -71,7 +71,7 @@ describe('Strategy#userProfile', function () {
     });
 
     strategy._oauth2.get = function (url, accessToken, callback) {
-      var body = '{"error":{"errorCode":"PARTNER_AUTHENTICATION_FAILED","message":"The specified Integrator Key was not found or is disabled. An Integrator key was not specified."}}';
+      var body = '{"error":{"errorCode":"PARTNER_AUTHENTICATION_FAILED","message":"The specified Integration Key was not found or is disabled. An Integration key was not specified."}}';
       callback({statusCode: 400, data: body});
     };
 
@@ -87,7 +87,7 @@ describe('Strategy#userProfile', function () {
     it('should error', function () {
       expect(err).to.be.an.instanceOf(Error);
       expect(err.constructor.name).to.equal('DocusignAPIError');
-      expect(err.message).to.equal('The specified Integrator Key was not found or is disabled. An Integrator key was not specified.');
+      expect(err.message).to.equal('The specified Integration Key was not found or is disabled. An Integration key was not specified.');
       expect(err.errorCode).to.equal('PARTNER_AUTHENTICATION_FAILED');
       expect(err.subcode).to.be.undefined;
     });
