@@ -41,7 +41,7 @@ complete authentication.
 
 ```js
 passport.use(new DocusignStrategy({
-    clientID: DOCUSIGN_INTEGRATOR_KEY,
+    clientID: DOCUSIGN_INTEGRATION_KEY,
     clientSecret: DOCUSIGN_APP_SECRET,
     callbackURL: "http://localhost:3000/auth/docusign/callback"
   },
@@ -120,3 +120,12 @@ $ make view-cov
 [downloads-url]: https://npmjs.org/package/passport-docusign
 [travis-image]: https://img.shields.io/travis/docusign/passport-docusign.svg?style=flat
 [travis-url]: https://travis-ci.org/docusign/passport-docusign
+
+### Additional Resources
+* [DocuSign Developer Center](https://developers.docusign.com)
+* [DocuSign API on Twitter](https://twitter.com/docusignapi)
+* [DocuSign For Developers on LinkedIn](https://www.linkedin.com/showcase/docusign-for-developers/)
+* [DocuSign For Developers on YouTube](https://www.youtube.com/channel/UCJSJ2kMs_qeQotmw4-lX2NQ)
+
+
+
